@@ -1,0 +1,64 @@
+# create map between superPower and astronaut
+mutation {
+  createAstronautsSuperPowersMap(input: {
+    astronautsSuperPowersMap: {
+      idAstronaut: 22,
+      idSuperPower: 5
+    }
+  }) {
+    clientMutationId
+  }
+}
+
+
+
+
+# create superPower
+
+mutation {
+  createSuperPower(input: {
+    superPower: {
+      name: "létání"
+    }
+  }) {
+    clientMutationId
+  }
+}
+
+
+# get all data
+{
+	allAstronauts(
+  	orderBy: LAST_NAME_ASC
+  ){
+  	nodes{ 
+      id
+      firstName
+      lastName
+    	astronautsSuperPowersMapsByIdAstronaut{
+      	nodes{
+        	superPowerByIdSuperPower{
+            name
+            id
+          }
+        }
+      }
+    }
+  }
+
+  allSuperPowers{
+    nodes{
+      id
+      name
+      astronautsSuperPowersMapsByIdSuperPower{
+      	nodes{
+        	astronautByIdAstronaut{
+          	id
+            firstName
+            lastName
+          }
+        }
+      }
+    }
+  }
+}
