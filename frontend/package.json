@@ -18,7 +18,7 @@
     "react-scripts": "1.0.10",
     "react-select": "^1.0.0-rc.5",
     "react-toastify": "^2.0.0-rc.1",
-    "validator": "^8.0.0"
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
